@@ -96,4 +96,3 @@ export default <Doc id="mjn-standard" title="Hold 背后的距离" lang="zh-CN" 
     </Animation>
   </Scene>
 </Doc>;
-
