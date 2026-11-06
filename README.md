@@ -6,29 +6,26 @@ Turn existing PowerPoint and PDF presentations into narrated, animated explainer
 
 **Planned skill invocation:** `slides-explainer`
 
-An initial functional MVP is implemented: PPTX/PDF ingestion, source-grounded narration files, local TTS, source-page animation, phrase captions, a chaptered web player, and H.264 MP4 export. MotionHub support currently adapts palette/grid tokens; it does not yet reuse native motion components. See the [current setup and limitations](references/quickstart.md).
+The current production workflow uses **standard VisoTalk** for narration, word-anchored animation, QA and player delivery. The migrated Chinese data-report example is in [examples/mjn-visotalk](examples/mjn-visotalk). See the [VisoTalk workflow](references/visotalk-workflow.md) for setup and reproduction.
 
-The repository directory still uses its earlier name, `ppt-motion-skill`; this implementation does not rename the checkout or remote repository.
+The earlier source-page Remotion MVP remains in this repository as historical implementation material.
 
 Read the [product and technical design](docs/product-and-technical-design.md) for goals, user scenarios, workflow, architecture, project structure, output formats, and the evaluation plan.
 
 ## Getting started
 
-Install the prerequisites and run the environment check using the [quickstart](references/quickstart.md). In an agent, start from [SKILL.md](SKILL.md).
+Follow the [VisoTalk workflow](references/visotalk-workflow.md). For the included example:
 
-```bash
-npm ci
-node scripts/explainer.mjs doctor
-node scripts/explainer.mjs ingest --input /path/to/deck.pptx --work /workspace/works/demo --pages 1-3
-# Author /workspace/works/demo/story/narration.json, then:
-node scripts/explainer.mjs prepare --work /workspace/works/demo
-node scripts/explainer.mjs build --work /workspace/works/demo
-node scripts/check-web.mjs /workspace/works/demo
-node scripts/explainer.mjs verify --work /workspace/works/demo
-node scripts/serve.mjs /workspace/works/demo
+```powershell
+npx --yes visotalk@latest doctor --fix
+cd examples/mjn-visotalk
+python -m pip install edge-tts==7.3.1
+python generate_voice.py
+./produce.ps1
+npx --yes visotalk@latest play doc.tsx --port 3096
 ```
 
-Web player delivery is the default. MP4 export runs only when explicitly requested (`render` or `run --video`). Outputs are under the work project's `dist/`. The server listens on port 3000; an environment preview mapping or hosting endpoint is required for a shareable URL. Source materials are processed locally; no cloud voice credentials are needed for the preview-quality eSpeak narration. Source and third-party asset rights must be respected.
+Web player delivery is the default. MP4 export is explicit through `visotalk render`. The example uses Microsoft's online Yunxi voice service to generate local clips. Generated audio, source PDFs and build artifacts are not committed.
 
 ## Development checks
 
