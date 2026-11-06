@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "note": "Public source references, not a redistribution license. Original files and generated works stay outside the skill repository. The committed material descriptions are historical, not current business facts.",
+  "materials": [
+    {
+      "id": "cncf-overview-cn",
+      "url": "https://raw.githubusercontent.com/cncf/presentations/main/chinese/CNCF_Overview_CN.pptx",
+      "sha256": "6fef9f14b0b0aabd84a82e7055b2ecbac305d9fc2ccace75fb465644e608b2fe",
+      "pageCount": 50,
+      "pages": "3-5",
+      "goal": "Chinese narration, original visual identity, source mappings"
+    },
+    {
+      "id": "mjn-stock-pitch",
+      "url": "https://raw.githubusercontent.com/vshah5/Equity-Research-Report-and-Stock-Pitch/main/MJN%20Stock%20Pitch.pptx",
+      "sha256": "cc02f93f3b3f3976c69667e4d706e0ed9f2afc947220015c98953bd5a2453670",
+      "pageCount": 82,
+      "pages": "4",
+      "goal": "Native chart categories and numerical series extraction",
+      "rights": "No explicit repository license identified; do not redistribute without authorization."
+    },
+    {
+      "id": "mjn-summary-pdf",
+      "url": "https://raw.githubusercontent.com/vshah5/Equity-Research-Report-and-Stock-Pitch/main/MJN%20Investment%20Summary%20Slide.pptx.pdf",
+      "sha256": "9da18e4b6ea7812205b6356a64162c25421ccf6a4296c39dc6507f8487a07b05",
+      "pageCount": 1,
+      "pages": "1",
+      "goal": "Dense PDF text and one-page-to-multiple-scene narration",
+      "rights": "No explicit repository license identified; do not redistribute without authorization."
+    },
+    {
+      "id": "code-quality-cn",
+      "url": "https://raw.githubusercontent.com/cncf/presentations/main/chinese/How_Good_Is_Our_Code_CN.pptx",
+      "sha256": "fad2b986b8f900d1663d21f809c19c521e3a8d4ee42589cb880ca53fe8a82f7f",
+      "pageCount": 55,
+      "pages": "1,4",
+      "goal": "Chinese technical material extraction and reference rendering"
+    }
+  ]
+}
