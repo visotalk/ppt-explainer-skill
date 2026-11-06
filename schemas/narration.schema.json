@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object", "additionalProperties": false,
+  "required": ["schemaVersion", "language", "title", "segments"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "language": {"enum": ["zh-CN", "en-US"]},
+    "title": {"type": "string", "minLength": 1, "maxLength": 70},
+    "segments": {
+      "type": "array", "minItems": 1, "maxItems": 100,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "sourcePages", "title", "text", "points"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,63}$"},
+          "sourcePages": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "integer", "minimum": 1}},
+          "title": {"type": "string", "minLength": 1, "maxLength": 48},
+          "text": {"type": "string", "minLength": 1, "maxLength": 600},
+          "points": {"type": "array", "maxItems": 3, "items": {"type": "string", "minLength": 1, "maxLength": 65}},
+          "voiceText": {"type": "string", "minLength": 1, "maxLength": 1000},
+          "audio": {"type": "string", "minLength": 1},
+          "captionChunks": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 70}},
+          "focus": {
+            "type": "object", "additionalProperties": false, "required": ["x", "y", "width", "height"],
+            "properties": {"x": {"type": "number", "minimum": 0, "maximum": 1}, "y": {"type": "number", "minimum": 0, "maximum": 1}, "width": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}, "height": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}}
+          }
+        }
+      }
+    }
+  }
+}

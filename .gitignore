@@ -1,0 +1,16 @@
+node_modules/
+works/
+.cache/
+__pycache__/
+*.pyc
+.venv/
+
+# VisoTalk generated works
+.visotalk/
+examples/*/dist/
+examples/*/library/*.mp3
+examples/*/library/*.wav
+examples/*/library/*.m4a
+examples/*/library/*.jsonl
+examples/*/library/*.pdf
+*.log
